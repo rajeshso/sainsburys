@@ -1,10 +1,7 @@
 package uk.co.sainsburys.interview.sainsburys.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.NaturalIdCache;
 
@@ -14,20 +11,24 @@ import org.hibernate.annotations.NaturalIdCache;
 @AllArgsConstructor
 @NoArgsConstructor
 @NaturalIdCache  // Enables caching for @NaturalId lookups
+@Builder
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NaturalId
     @Column(name = "product_uid", nullable = false, updatable = false, unique = true)
-    private Integer product_uid;
+    private String productUid;
 
     @Column
-    String product_type;
+    String productType;
     @Column
     String name;
     @Column
-    String full_url;
+    String fullUrl;
+    @Column
+    Double unitPrice;
 
 }

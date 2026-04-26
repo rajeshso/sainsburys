@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uk.co.sainsburys.interview.sainsburys.service.ProductService;
 
+import java.net.MalformedURLException;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -17,7 +19,7 @@ public class ProductController {
     }
 
     @PostMapping("/ingest")
-    public ResponseEntity<Void> ingest() {
+    public ResponseEntity<Void> ingest() throws MalformedURLException {
         productService.ingestProducts();
         return ResponseEntity.accepted().build();
     }

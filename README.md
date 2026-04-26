@@ -45,7 +45,7 @@ Triggers the ingestion pipeline:
 - Fetches data from both external APIs
 - Merges product and pricing records using `product_uid` as the join key
 - Persists merged records via `UPSERT` (`ON CONFLICT DO UPDATE`)
-- Returns HTTP `200` on success
+- Returns HTTP `202` on success
 
 #### `GET /products`
 

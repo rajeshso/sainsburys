@@ -1,5 +1,6 @@
 package uk.co.sainsburys.interview.sainsburys.client;
 
+import org.springframework.stereotype.Component;
 import uk.co.sainsburys.interview.sainsburys.model.ProductPriceResponse;
 import uk.co.sainsburys.interview.sainsburys.model.ProductResponse;
 
@@ -8,6 +9,7 @@ import java.net.URL;
 import java.net.http.HttpClient;
 import java.util.List;
 
+@Component
 public class ProductApiClient implements ApiClient {
 
     HttpClient client;
