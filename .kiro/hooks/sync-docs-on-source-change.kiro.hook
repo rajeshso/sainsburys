@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "name": "Sync Docs on Source Change",
+  "description": "When any Java source file, build config, or properties file changes, ask the agent to update the README or docs folder to reflect the changes.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.java",
+      "build.gradle",
+      "settings.gradle",
+      "gradle.properties",
+      "**/application.properties",
+      "**/application.yml"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A source file was just edited. Review the change and update the documentation accordingly. If there is a /docs folder, update the relevant file there. Otherwise, update the README.md. Only make changes to the docs if the edit meaningfully affects the documented behaviour, API contract, configuration, or project structure — skip trivial changes like formatting or minor refactors."
+  }
+}
